@@ -1525,6 +1525,10 @@ public class Main extends Application
         TextField changeHairColorTxtField = new TextField();changeHairColorTxtField.setLayoutX(contactHairColor.getX());changeHairColorTxtField.setLayoutY(contactHairColor.getY() - 10);changeHairColorTxtField.setMaxHeight(18);changeHairColorTxtField.setMinHeight(18);changeHairColorTxtField.setVisible(false);
         TextField changeEyeColorTxtField = new TextField();changeEyeColorTxtField.setLayoutX(contactEyeColor.getX());changeEyeColorTxtField.setLayoutY(contactEyeColor.getY() - 10);changeEyeColorTxtField.setMinHeight(18);changeEyeColorTxtField.setMaxHeight(18);changeEyeColorTxtField.setVisible(false);
 
+        TextField addStAddressTxtField = new TextField();addStAddressTxtField.setLayoutX(addressesDropDownLabel.getLayoutX());addStAddressTxtField.setLayoutY(addressesDropDownLabel.getLayoutY() - 100);addStAddressTxtField.setVisible(false);
+        TextField addCityTxtField = new TextField();
+        TextField addZipcodeTxtField = new TextField();
+
         //TextAreas
         TextArea commentField = new TextArea();commentField.setLayoutX(contactComment.getX());commentField.setLayoutY(contactComment.getY());commentField.setVisible(false);
 
@@ -1564,9 +1568,13 @@ public class Main extends Application
         Button clearButton = new Button("Clear");clearButton.setLayoutX(selectContactButton.getLayoutX() + 177);clearButton.setLayoutY(selectContactButton.getLayoutY());clearButton.setPrefSize(70, 40);
 
         Button expandAddressesButton = new Button("v");expandAddressesButton.setLayoutX(addressesUnderline.getEndX() + 10);expandAddressesButton.setLayoutY(addressesUnderline.getEndY() - 12.5);expandAddressesButton.setShape(new Circle(1.5));expandAddressesButton.setPrefSize(25, 25);expandAddressesButton.setVisible(false);
+        Button addAddressMetaButton = new Button("add");addAddressMetaButton.setLayoutX(expandAddressesButton.getLayoutX() + 40);addAddressMetaButton.setLayoutY(expandAddressesButton.getLayoutY());addAddressMetaButton.setVisible(false);
         Button expandPhoneNumberButton = new Button("v");expandPhoneNumberButton.setLayoutX(phoneNumbersUnderline.getEndX() + 10);expandPhoneNumberButton.setLayoutY(phoneNumbersUnderline.getEndY() - 12.5);expandPhoneNumberButton.setShape(new Circle(1.5));expandPhoneNumberButton.setPrefSize(25,25);expandPhoneNumberButton.setVisible(false);
+        Button addPhoneNumberMetaButton = new Button("add");addPhoneNumberMetaButton.setLayoutX(expandPhoneNumberButton.getLayoutX() + 40);addPhoneNumberMetaButton.setLayoutY(expandPhoneNumberButton.getLayoutY());addPhoneNumberMetaButton.setVisible(false);
         Button expandEmailButton = new Button("v");expandEmailButton.setLayoutX(emailsUnderline.getEndX() + 10);expandEmailButton.setLayoutY(emailsUnderline.getEndY() - 12.5);expandEmailButton.setShape(new Circle(1.5));expandEmailButton.setPrefSize(25, 25);expandEmailButton.setVisible(false);
+        Button addEmailMetaButton = new Button("add");addEmailMetaButton.setLayoutX(expandEmailButton.getLayoutX() + 40);addEmailMetaButton.setLayoutY(expandEmailButton.getLayoutY());addEmailMetaButton.setVisible(false);
         Button expandCategoryButton = new Button("v");expandCategoryButton.setLayoutX(categoriesUnderline.getEndX() + 10);expandCategoryButton.setLayoutY(categoriesUnderline.getEndY() - 12.5);expandCategoryButton.setShape(new Circle(1.5));expandCategoryButton.setPrefSize(25, 25);expandCategoryButton.setVisible(false);
+        Button addCategoryMetaButton = new Button("add");addCategoryMetaButton.setLayoutX(expandCategoryButton.getLayoutX() + 40);addCategoryMetaButton.setLayoutY(expandCategoryButton.getLayoutY());addCategoryMetaButton.setVisible(false);
         Button backToSearchButton = new Button("Back");backToSearchButton.setLayoutX(tempStage.getWidth() - 95);backToSearchButton.setLayoutY(userSettingsLabel.getLayoutY());backToSearchButton.setVisible(false);
 
         //node functionality
@@ -1943,7 +1951,7 @@ public class Main extends Application
 
             //ListView
             searchContactsListView.setVisible(true);
-            
+
             //3) clear info from lists
             //Texts
             for(int i = 0; i < streetAddressesTxtField.size(); i++)
@@ -2121,7 +2129,11 @@ public class Main extends Application
                 changeComment.setLayoutY(changeComment.getLayoutY() + yIncrement);
                 commentField.setLayoutY(commentField.getLayoutY() + yIncrement);
                 contactComment.setY(contactComment.getY() + yIncrement);
+                addPhoneNumberMetaButton.setLayoutY(addPhoneNumberMetaButton.getLayoutY() + yIncrement);
+                addEmailMetaButton.setLayoutY(addEmailMetaButton.getLayoutY() + yIncrement);
+                addCategoryMetaButton.setLayoutY(addCategoryMetaButton.getLayoutY() + yIncrement);
 
+                addAddressMetaButton.setVisible(true);
                 for(int i = 0; i < streetAddressesTextObj.size(); i++)
                 {
                     streetAddressesTextObj.get(i).setVisible(true);
@@ -2167,6 +2179,9 @@ public class Main extends Application
                 categoriesUnderline.setEndY(categoriesUnderline.getEndY() - yIncrement);
                 expandCategoryButton.setLayoutY(expandCategoryButton.getLayoutY() - yIncrement);
                 contactCategories.setLayoutY(contactCategories.getLayoutY() - yIncrement);
+                addPhoneNumberMetaButton.setLayoutY(addPhoneNumberMetaButton.getLayoutY() - yIncrement);
+                addEmailMetaButton.setLayoutY(addEmailMetaButton.getLayoutY() - yIncrement);
+                addCategoryMetaButton.setLayoutY(addCategoryMetaButton.getLayoutY() - yIncrement);
 
                 commentTitle.setLayoutY(commentTitle.getLayoutY() - yIncrement);
                 changeComment.setLayoutY(changeComment.getLayoutY() - yIncrement);
@@ -2174,6 +2189,7 @@ public class Main extends Application
                 contactComment.setY(contactComment.getY() - yIncrement);
 
                 //hide address nodes
+                addAddressMetaButton.setVisible(false);
                 //display all addresses
                 for(int i = 0; i < addressTypeComboBoxes.size(); i++)
                 {
@@ -2222,7 +2238,11 @@ public class Main extends Application
                 changeComment.setLayoutY(changeComment.getLayoutY() + yIncrement);
                 commentField.setLayoutY(commentField.getLayoutY() + yIncrement);
                 contactComment.setY(contactComment.getY() + yIncrement);
+                addEmailMetaButton.setLayoutY(addEmailMetaButton.getLayoutY() + yIncrement);
+                addCategoryMetaButton.setLayoutY(addCategoryMetaButton.getLayoutY() + yIncrement);
 
+                //set visibility
+                addPhoneNumberMetaButton.setVisible(true);
                 for(int i = 0; i < phoneNumberTxtObj.size(); i++)
                 {
                     phoneNumberTxtObj.get(i).setVisible(true);
@@ -2254,7 +2274,11 @@ public class Main extends Application
                 changeComment.setLayoutY(changeComment.getLayoutY() - yIncrement);
                 commentField.setLayoutY(commentField.getLayoutY() - yIncrement);
                 contactComment.setY(contactComment.getY() - yIncrement);
+                addEmailMetaButton.setLayoutY(addEmailMetaButton.getLayoutY() - yIncrement);
+                addCategoryMetaButton.setLayoutY(addCategoryMetaButton.getLayoutY() - yIncrement);
 
+                //set visibility
+                addPhoneNumberMetaButton.setVisible(false);
                 for(int i = 0; i < phoneNumberTxtObj.size(); i++)
                 {
                     phoneNumberTxtObj.get(i).setVisible(false);
@@ -2275,6 +2299,7 @@ public class Main extends Application
             {
                 expandEmailButton.setText("^");
 
+                addEmailMetaButton.setVisible(true);
                 for(int i = 0; i < emailTxtObj.size(); i++)
                 {
                     emailTxtObj.get(i).setVisible(true);
@@ -2286,6 +2311,7 @@ public class Main extends Application
                 categoriesUnderline.setStartY(categoriesUnderline.getStartY() + yIncrement);categoriesUnderline.setEndY(categoriesUnderline.getEndY() + yIncrement);
                 expandCategoryButton.setLayoutY(expandCategoryButton.getLayoutY() + yIncrement);
                 contactCategories.setLayoutY(contactCategories.getLayoutY() + yIncrement);
+                addCategoryMetaButton.setLayoutY(addCategoryMetaButton.getLayoutY() + yIncrement);
 
                 commentTitle.setLayoutY(commentTitle.getLayoutY() + yIncrement);
                 changeComment.setLayoutY(changeComment.getLayoutY() + yIncrement);
@@ -2294,6 +2320,7 @@ public class Main extends Application
             } else {
                 expandEmailButton.setText("v");
 
+                addEmailMetaButton.setVisible(false);
                 for(int i = 0; i < emailTxtObj.size(); i++)
                 {
                     emailTxtObj.get(i).setVisible(false);
@@ -2305,6 +2332,7 @@ public class Main extends Application
                 categoriesUnderline.setStartY(categoriesUnderline.getStartY() - yIncrement);categoriesUnderline.setEndY(categoriesUnderline.getEndY() - yIncrement);
                 expandCategoryButton.setLayoutY(expandCategoryButton.getLayoutY() - yIncrement);
                 contactCategories.setLayoutY(contactCategories.getLayoutY() - yIncrement);
+                addCategoryMetaButton.setLayoutY(addCategoryMetaButton.getLayoutY() - yIncrement);
 
                 commentTitle.setLayoutY(commentTitle.getLayoutY() - yIncrement);
                 changeComment.setLayoutY(changeComment.getLayoutY() - yIncrement);
@@ -2319,6 +2347,7 @@ public class Main extends Application
             {
                 expandCategoryButton.setText("^");
                 contactCategories.setVisible(true);
+                addCategoryMetaButton.setVisible(true);
 
                 //shift everything down
                 commentTitle.setLayoutY(commentTitle.getLayoutY() + 300);
@@ -2327,6 +2356,7 @@ public class Main extends Application
                 contactComment.setY(contactComment.getY() + 300);
             } else {
                 expandCategoryButton.setText("v");
+                addCategoryMetaButton.setVisible(false);
                 contactCategories.setVisible(false);
 
                 //shift everything up
@@ -2558,7 +2588,7 @@ public class Main extends Application
                 maleRB, femaleRB, //Radio Buttons
                 searchContactsListView, contactCategories, //ListView
                 changeContactFirstName, changeContactMiddleName, changeContactLastName, changeContactDoB, changeContactHeight, changeContactWeight, changeContactHairColor, changeContactEyeColor, changeComment, //Hyperlinks
-                searchContactsButton, resetSearchButton, selectContactButton, clearButton, expandAddressesButton, expandPhoneNumberButton, expandEmailButton, expandCategoryButton, backToSearchButton); //buttons
+                searchContactsButton, resetSearchButton, selectContactButton, clearButton, expandAddressesButton, addAddressMetaButton, expandPhoneNumberButton, addPhoneNumberMetaButton, expandEmailButton, addEmailMetaButton, expandCategoryButton, addCategoryMetaButton, backToSearchButton); //buttons
 
         //SEARCH PREFERENCE Nodes
         //Labels
