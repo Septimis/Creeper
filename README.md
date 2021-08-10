@@ -78,7 +78,7 @@ No.  I had no idea how to work with databases, so instead, I wrote everything I 
 [3] : Categories (separated by >\~>)
 [4] : T / F (depending on if they wanted metric or not)
 
-And the contacts.txt used one line per contact, and the contacts information is separated by >~>.  I chose '>~>' because I thought that would be the least likely combination of characters to be accidentally entered by a user.
+And the contacts.txt used one line per contact, and the contacts information is separated by >\~>.  I chose '>\~>' because I thought that would be the least likely combination of characters to be accidentally entered by a user.
 ### **Isn't saving my username and password on local .txt files a security risk?**
 Yes it is.  I didn't know anything about SHA-256 or any other password hashing I might of used, so I determined to create my own.  My encryption algorithm turned out to just be a slightly complicated [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher), but it was very satisfying to create. If you decide to build Creeper, I would suggest **not** saving your real password into it as it will be saved on your C: drive "encrypted".
 
