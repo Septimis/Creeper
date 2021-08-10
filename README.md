@@ -72,10 +72,10 @@ Prior to Creeper, I hadn't really read or wrote to files.  It's not very difficu
 It will compile and run, however, the manner in which I wrote to files means that it will not save any data entered into it.  I don't believe you will be able to make an account since Linux and MacOS do not have a C: drive.
 ### **Does Creeper use a database?**
 No.  I had no idea how to work with databases, so instead, I wrote everything I would need in text files within the C: drive.  This is why Creeper will not work on MacOS or Linux as I had no idea the differences between the file systems.  It was a really fun exercise to try and figure out how to read and write data to a file.  Once a user creates an account, Creeper makes a 'Creeper' file on the C: drive, and then a folder within that labled with the username of the User.  Any additional users will create an account within 'C:/Creeper/[username]'.  Within that folder is two .txt files.  One is named 'accountInfo.txt' and the other 'contacts.txt'.  Each line of the accountInfo.txt has a different peice of the user Info. It goes as follows: <br>
-[0] : FirstName >~> LastName <br>
+[0] : FirstName >\~> LastName <br>
 [1] : Username <br>
 [2] : Password (Encrypted) <br>
-[3] : Categories (separated by >~>)
+[3] : Categories (separated by >\~>)
 [4] : T / F (depending on if they wanted metric or not)
 
 And the contacts.txt used one line per contact, and the contacts information is separated by >~>.  I chose '>~>' because I thought that would be the least likely combination of characters to be accidentally entered by a user.
