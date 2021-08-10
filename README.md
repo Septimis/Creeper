@@ -75,7 +75,7 @@ No.  I had no idea how to work with databases, so instead, I wrote everything I 
 [0] : FirstName >\~> LastName <br>
 [1] : Username <br>
 [2] : Password (Encrypted) <br>
-[3] : Categories (separated by >\~>)
+[3] : Categories (separated by >\~>) <br>
 [4] : T / F (depending on if they wanted metric or not)
 
 And the contacts.txt used one line per contact, and the contacts information is separated by >\~>.  I chose '>\~>' because I thought that would be the least likely combination of characters to be accidentally entered by a user.
